@@ -1,0 +1,48 @@
+# .cursor/rules/error-learning.yaml
+# Purpose: let the agent remember previously fixed errors and reuse those fixes
+#          when a similar error resurfaces.
+
+- name: remember-resolved-errors
+  description: >
+    After an error is fixed, persist the fingerprint (message + file + line)
+    and the final patch, so future prompts can reuse the solution.
+  trigger:
+    event: on_fix_applied             # Cursor fires this when you accept a patch
+  actions:
+    - type: memory.append
+      key: error_history              # global array of {fingerprint, patch}
+      value: |
+        {
+          "fingerprint": "{{ fix.error.message | lower | truncate:120 }}",
+          "location": "{{ fix.error.file }}:{{ fix.error.line }}",
+          "patch": "{{ fix.diff }}"
+        }
+
+- name: reuse-past-error-fix
+  description: >
+    When a new error looks similar to one already stored, suggest the previous
+    fix instead of generating a brand-new (possibly hallucinated) answer.
+  trigger:
+    event: on_error_detected          # Cursor fires this when user asks “why X fails?” or stack-trace appears
+  actions:
+    - type: memory.search
+      key: error_history
+      query: "{{ error.message | lower | truncate:120 }}"
+      top_k: 1
+      similarity_threshold: 0.77
+      as: last_fix                    # stores best match in temp variable
+    - type: if
+      condition: "{{ last_fix != null }}"
+      then:
+        - type: respond
+          message: |
+            **Possible repeat error detected**  
+            A similar issue was resolved earlier at **{{ last_fix.location }}**.  
+            Proposed patch (re-applied):  
+            ```diff
+            {{ last_fix.patch }}
+            ```
+      else:
+        - type: respond
+          message: |
+            No close match in error_history; proceeding with fresh analysis.

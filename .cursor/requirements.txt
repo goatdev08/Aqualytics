@@ -1,0 +1,22 @@
+# --- Core Framework ---
+fastapi==0.115.2            # Web framework for async APIs (OpenAPI, routing, DI)
+uvicorn[standard]==0.30.0   # ASGI server to run FastAPI with hot reload
+
+# --- Data & Analysis ---
+pandas==2.3.0               # Data manipulation and metric calculations
+numpy==1.27.0               # Required for numerical operations and vectorized calculations
+
+# --- ORM / Database ---
+sqlalchemy==2.0.41          # Async ORM for PostgreSQL model definitions
+asyncpg==0.30.0             # High-performance PostgreSQL driver (async)
+
+# --- Environment & Config ---
+python-dotenv==1.0.1        # Load environment variables from .env file
+python-multipart==0.0.7     # Handle file uploads (e.g., CSV import)
+
+# --- Schema Validation ---
+pydantic==2.7.1             # Model validation and serialization for API requests/responses
+
+# --- Dev / Lint / Tests ---
+pytest==8.2.0               # Unit testing framework
+black==24.4.2               # Code formatter for Python

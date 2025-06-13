@@ -1,0 +1,45 @@
+{
+  "folders": [
+    {
+      "path": "./frontend"
+    },
+    {
+      "path": "./backend"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder:backend}/venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "black",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "eslint.workingDirectories": ["frontend"],
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/__pycache__": true,
+      "**/.pytest_cache": true,
+      "**/venv": true,
+      "**/.env": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/venv": true,
+      "**/.git": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.black-formatter",
+      "ms-python.flake8",
+      "bradlc.vscode-tailwindcss",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "ms-vscode.vscode-typescript-next"
+    ]
+  }
+} 
