@@ -34,9 +34,9 @@ into finer sub‑tasks. Dependencies are explicit for context‑aware completion
 
 ---
 
-## Phase 2 — Backend Environment
+## Phase 2 — Backend Environment
 
-- [ ] **Python venv & core deps** (Score 2)  
+- [x] **Python venv & core deps** (Score 2)  
   _Dependencies_: python 3.12, `pip`, requirements.txt  
   1. `python -m venv venv`  
   2. `pip install fastapi uvicorn[standard] pandas sqlalchemy asyncpg python-dotenv python-multipart pydantic`  
