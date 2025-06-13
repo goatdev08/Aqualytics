@@ -24,9 +24,9 @@ into finer sub‑tasks. Dependencies are explicit for context‑aware completion
 
 ---
 
-## Phase 1 — Database Foundation
+## Phase 1 — Database Foundation
 
-- [ ] **Set up Supabase project & schema** (Score 3)  
+- [x] **Set up Supabase project & schema** (Score 3)  
   _Dependencies_: Supabase dashboard, `psql`  
   1. Create project.  
   2. Run SQL schema script (tables: swimmers, competitions, results).  
