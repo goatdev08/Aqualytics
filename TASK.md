@@ -44,9 +44,9 @@ into finer sub‑tasks. Dependencies are explicit for context‑aware completion
 
 ---
 
-## Phase 3 — FastAPI Skeleton
+## Phase 3 — FastAPI Skeleton
 
-- [ ] **Bootstrap API application** (Score 3)  
+- [x] **Bootstrap API application** (Score 3)  
   _Dependencies_: fastapi, uvicorn, pydantic  
   1. `main.py` with FastAPI instance.  
   2. Enable CORS for `localhost:3000`.  
@@ -54,9 +54,9 @@ into finer sub‑tasks. Dependencies are explicit for context‑aware completion
 
 ---
 
-## Phase 4 — Data Layer **(HIGH)**
+## Phase 4 — Data Layer **(HIGH)**
 
-- [ ] **Design async SQLAlchemy models & connection** (Score 4)  
+- [ ] **Design async SQLAlchemy models & connection** (Score 4)  
   _Dependencies_: sqlalchemy 2, asyncpg, pandas  
   - [ ] _Sub 4.1_ `connection.py` – async engine using `DATABASE_URL`.  
   - [ ] _Sub 4.2_ `models/*.py` – Swimmer, Competition, Result.  
@@ -65,7 +65,7 @@ into finer sub‑tasks. Dependencies are explicit for context‑aware completion
 ---
 
 
-- [ ] **Endpoint `/import` multipart CSV → DB** (Score 4)  
+- [ ] **Endpoint `/import` multipart CSV → DB** (Score 4)  
   _Dependencies_: pandas, python‑multipart  
   - [ ] _Sub 5.1_ Validate header contains 16‑20 metric columns.  
   - [ ] _Sub 5.2_ Bulk‑insert rows with asyncpg transaction.  
@@ -99,9 +99,9 @@ into finer sub‑tasks. Dependencies are explicit for context‑aware completion
   - [ ] Dropdown for `phase` (`PRELIM|SEMIS|FINAL`).  
   - [ ] Submit via `POST`, show toast + optimistic update.
 
-## Phase 6 — Metrics & Analysis Engine **(HIGH)**
+## Phase 6 — Metrics & Analysis Engine **(HIGH)**
 
-- [ ] **`data_analysis.py` calculations** (Score 5)  
+- [ ] **`data_analysis.py` calculations** (Score 5)  
   _Dependencies_: pandas, numpy (implicit)  
   - [ ] _Sub 6.1_ Compute aggregates (avg, best, std) per metric.  
   - [ ] _Sub 6.2_ Delta comparison between two swimmers/races.  
@@ -109,18 +109,18 @@ into finer sub‑tasks. Dependencies are explicit for context‑aware completion
 
 ---
 
-## Phase 7 — Feature Routers
+## Phase 7 — Feature Routers
 
-- [ ] **`/competitions` & `/results` endpoints** (Score 3)  
+- [ ] **`/competitions` & `/results` endpoints** (Score 3)  
   _Dependencies_: fastapi, sqlalchemy  
   1. List competitions with pagination.  
   2. Detail endpoint returns metrics JSON.
 
 ---
 
-## Phase 8 — Frontend Environment
+## Phase 8 — Frontend Environment
 
-- [ ] **Init Next.js + TailwindCSS** (Score 2)  
+- [ ] **Init Next.js + TailwindCSS** (Score 2)  
   _Dependencies_: next 14, react 18, tailwindcss 3  
   1. `npx create-next-app frontend --ts`.  
   2. Configure Tailwind (`postcss.config.js`, `globals.css`).  
@@ -128,18 +128,18 @@ into finer sub‑tasks. Dependencies are explicit for context‑aware completion
 
 ---
 
-## Phase 9 — API Service Layer
+## Phase 9 — API Service Layer
 
-- [ ] **`services/api.js` Axios wrapper** (Score 2)  
+- [ ] **`services/api.js` Axios wrapper** (Score 2)  
   _Dependencies_: axios 1  
   1. BaseURL env‑driven.  
   2. Interceptor for error logging.
 
 ---
 
-## Phase 10 — Competitions UI **(HIGH)**
+## Phase 10 — Competitions UI **(HIGH)**
 
-- [ ] **Build `pages/competitions.js`** (Score 4)  
+- [ ] **Build `pages/competitions.js`** (Score 4)  
   _Dependencies_: react, next, axios, plotly.js  
   - [ ] _Sub 10.1_ Fetch & list competitions (table).  
   - [ ] _Sub 10.2_ Detail drawer with 16‑20 metrics Plotly graphs.  
@@ -147,56 +147,56 @@ into finer sub‑tasks. Dependencies are explicit for context‑aware completion
 
 ---
 
-## Phase 11 — Dashboard UI
+## Phase 11 — Dashboard UI
 
-- [ ] **`pages/dashboard.js` KPI cards & comparisons** (Score 3)  
+- [ ] **`pages/dashboard.js` KPI cards & comparisons** (Score 3)  
   _Dependencies_: plotly.js, tailwindcss  
   1. Call analysis API.  
   2. Render line/bar graphs for progress.
 
 ---
 
-## Phase 12 — Authentication Flow
+## Phase 12 — Authentication Flow
 
-- [ ] **Integrate Supabase Auth** (Score 3)  
+- [ ] **Integrate Supabase Auth** (Score 3)  
   _Dependencies_: `@supabase/supabase-js`, next-auth (opt)  
   1. Sign‑in page, protected routes wrapper.  
   2. Store JWT in cookies/localStorage.
 
 ---
 
-## Phase 13 — Testing & QA
+## Phase 13 — Testing & QA
 
-- [ ] **Backend Pytest suite** (Score 2)  
+- [ ] **Backend Pytest suite** (Score 2)  
   _Dependencies_: pytest, httpx  
   - CRUD endpoints + analysis unit tests.
 
-- [ ] **Frontend lint & unit tests** (Score 2)  
+- [ ] **Frontend lint & unit tests** (Score 2)  
   _Dependencies_: eslint, jest/react-testing-library
 
 ---
 
-## Phase 14 — CI/CD
+## Phase 14 — CI/CD
 
-- [ ] **GitHub Actions pipeline** (Score 3)  
+- [ ] **GitHub Actions pipeline** (Score 3)  
   _Dependencies_: actions/setup-node, actions/setup-python  
   1. Job lint + test.  
   2. Deploy frontend to Vercel & backend to Railway on push to `main`.
 
 ---
 
-## Phase 15 — Deployment
+## Phase 15 — Deployment
 
-- [ ] **Release backend to Railway** (Score 2)  
+- [ ] **Release backend to Railway** (Score 2)  
   _Dependencies_: Railway CLI  
-- [ ] **Release frontend to Vercel** (Score 2)  
+- [ ] **Release frontend to Vercel** (Score 2)  
   _Dependencies_: Vercel CLI
 
 ---
 
-## Phase 16 — Pilot & Feedback
+## Phase 16 — Pilot & Feedback
 
-- [ ] **Invite first coaches, collect logs** (Score 2)  
+- [ ] **Invite first coaches, collect logs** (Score 2)  
   _Dependencies_: Vercel analytics, Railway logs  
 
 ---
